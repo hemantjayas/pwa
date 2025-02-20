@@ -20,28 +20,13 @@ function App() {
     }
   }, []);
 
-  const installPWA = () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then((choice) => {
-        if (choice.outcome === "accepted") {
-          console.log("User accepted the PWA installation");
-        }
-      });
-    }
-  };
 
   return (
     <div className="App">
       <MyNavbar />
       <UsersList />
 
-      {/* Show install button if PWA is not installed */}
-      {!isPWAInstalled && deferredPrompt && (
-        <button onClick={installPWA} style={{ margin: "20px", padding: "10px" }}>
-          Install PWA
-        </button>
-      )}
+     
     </div>
   );
 }
